@@ -1,0 +1,81 @@
+﻿@model DATAMODEL.VENDOR_BRANCH
+           @{
+               var allCashHeads = BusinessEntities.DropDownBO.DropDownBO.ALLCashHeadNames();
+               
+           }
+<br />
+        <div class="row">
+            <div class="col-md-10 ">
+@using (Ajax.BeginForm("weightTransfer", "Vouchers", new AjaxOptions
+{ 
+                                                        HttpMethod ="POST",
+                                                        OnComplete="ActiveprintBtn",
+                                                        UpdateTargetId ="voucherDiv",
+                                                        InsertionMode = InsertionMode.Replace
+                                                      }))
+                        {
+                <table class="table table-bordered table-hover table-striped ">
+                   
+                    <tbody>
+                      
+                        <tr><td>From Name</td><td>@ViewBag.VB_FROM.VENDOR_BRANCH_ID  @ViewBag.VB_FROM.VBNAME @ViewBag.VB_FROM.ADDRESS- کھاتہ نمبر </td></tr>
+                            <tr><td> To Name</td><td>@Model.VENDOR_BRANCH_ID  @Model.VBNAME @Model.ADDRESS- کھاتہ نمبر </td></tr>
+                     
+                           <tr><td> Date</td><td><input type="date" name="Date" required="required" class="form-control" style="background-color:#CCFFCC;"></td></tr>
+                        <tr><td>Rate/KG</td><td><input id="txtSecondValue" onkeyup="javascript:Add();" type="number" name="Rate" required="required" value="@ViewBag.Rate" class="form-control" style="background-color:#CCFFCC;"></td></tr>
+                        <tr><td>Weight(KG)</td><td><input id="txtFirstValue" onkeyup="javascript:Add();" type="number" name="Weight" required="required" class="form-control" style="background-color:#CCFFCC;"></td></tr>  
+                            <tr><td>Amount </td><td><input id="txtTotal" type="number" name="Amount" required="required" class="form-control" placeholder="Amount" style="background-color:#CCFFCC;"></td></tr>
+                            @*<tr><td> Head Name</td>
+                            <td>@Html.DropDownList("Head_id", allCashHeads.Select(m => new SelectListItem { Text = m.NAME, Value = m.HEAD_NAME_ID.ToString() }), "--Select Head Name--"
+                              , new { @class = "span2 searchcss form-control searchselect", @required = true, id = "Head_id" })*@
+
+                                @*<input type="date" name="pymentDate" required="required" class="form-control" style="background-color:#CCFFCC;"></td></tr>*@
+                           
+                      
+                     
+                            <tr>
+                                <td colspan="2">
+                                    <input type="hidden" value="@Model.VENDOR_BRANCH_ID" name="VENDOR_BRANCH_ID" />
+                                    <input type="hidden" value="@Model.ROUTE.ROUTE_ID" name="Route_ID" />
+                                    <input type="hidden" value="@Model.VENDOR_ID" name="VENDOR_ID" />
+                                    <input type="hidden" value="@ViewBag.VB_FROM.VBNAME" name="FROM" />
+                                    <input type="hidden" value="@Model.VBNAME" name="TO" />
+                                    <input type="submit" value="Transfer"  class="btn btn-success">
+                                    
+                                </td>
+                            </tr>
+                     
+                        
+                    </tbody>
+                </table>}
+            </div>
+    </div>
+
+
+
+
+<script>
+
+  function Add() {
+        var a, b, c, d;
+        a = parseFloat(document.getElementById("txtFirstValue").value);
+
+        //
+        // If textbox value is null i.e empty, then the below mentioned if condition will
+        // come into picture and make the value to '0' to avoid errors.
+        //
+
+        if (isNaN(a) == true) {
+            a = 0;
+        }
+        var b = parseFloat(document.getElementById("txtSecondValue").value);
+        if (isNaN(b) == true) {
+            b = 0;
+        }
+        
+       
+        document.getElementById("txtTotal").value = a * b
+  }
+
+
+  </script>

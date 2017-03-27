@@ -1,0 +1,30 @@
+﻿@model DATAMODEL.VENDOR_ROUTE_ENTRY
+<br />
+<table class="table table-bordered table-hover table-striped ">
+    <tbody>
+        @*<tr><td> @Model.VENDOR_BRANCH.ROUTE.NAME</td><td>@Model.VENDOR_BRANCH.VENDOR_BRANCH_ID  @Model.VENDOR_BRANCH.VBNAME @Model.VENDOR_BRANCH.ADDRESS - کھاتہ نمبر </td></tr>*@
+        <tr><td>New Amount Added </td><td> Rs:  @ViewBag.amount</td></tr>
+
+
+
+        <tr><td> Transaction Date</td><td> @ViewBag.date</td></tr>
+        <tr>
+            <td>Description</td>
+            <td>@Model.REMARKS</td>
+        </tr>
+        <tr>
+            <td>Rate/KG</td>
+            <td>@Model.RATE</td>
+
+        </tr>
+        <tr>
+            <td>Total Weight</td>
+            <td> @ViewBag.weight</td>
+        </tr>
+    </tbody>
+</table>
+<br />
+
+
+
+
