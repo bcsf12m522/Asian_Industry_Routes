@@ -22,9 +22,9 @@
                             <tr><td> To Name</td><td>@Model.VENDOR_BRANCH_ID  @Model.VBNAME @Model.ADDRESS- کھاتہ نمبر </td></tr>
                      
                            <tr><td> Date</td><td><input type="date" name="Date" required="required" class="form-control" style="background-color:#CCFFCC;"></td></tr>
-                        <tr><td>Rate/KG</td><td><input id="txtSecondValue" onkeyup="javascript:Add();" type="number" name="Rate" required="required" value="@ViewBag.Rate" class="form-control" style="background-color:#CCFFCC;"></td></tr>
+                        <tr><td>Rate/KG</td><td><input id="txtSecondValue" onkeyup="javascript:Add();" type="number" step="any" name="Rate" required value="@ViewBag.Rate" class="form-control" style="background-color:#CCFFCC;"></td></tr>
                         <tr><td>Weight(KG)</td><td><input id="txtFirstValue" onkeyup="javascript:Add();" type="number" name="Weight" required="required" class="form-control" style="background-color:#CCFFCC;"></td></tr>  
-                            <tr><td>Amount </td><td><input id="txtTotal" type="number" name="Amount" required="required" class="form-control" placeholder="Amount" style="background-color:#CCFFCC;"></td></tr>
+                            <tr><td>Amount </td><td><input id="txtTotal" type="number" step="any" name="Amount" required="required" class="form-control" placeholder="Amount" style="background-color:#CCFFCC;"></td></tr>
                             @*<tr><td> Head Name</td>
                             <td>@Html.DropDownList("Head_id", allCashHeads.Select(m => new SelectListItem { Text = m.NAME, Value = m.HEAD_NAME_ID.ToString() }), "--Select Head Name--"
                               , new { @class = "span2 searchcss form-control searchselect", @required = true, id = "Head_id" })*@
